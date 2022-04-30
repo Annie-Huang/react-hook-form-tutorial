@@ -5,6 +5,7 @@ https://github.com/Annie-Huang/react-hook-form/tree/master/examples/V7
 https://github.com/Annie-Huang/react-hook-form-tutorial
 
 https://react-hook-form.com/get-started/
+https://react-hook-form.com/get-started/#IntegratingControlledInputs
 
 https://codesandbox.io/s/pensive-jepsen-lqyk7
 https://codesandbox.io/s/brave-elgamal-2m1kq
@@ -16,7 +17,22 @@ React Hook Form V7 - Get Started    (https://www.youtube.com/watch?v=DN8v7_RbVlc
 PS C:\react> npx create-react-app react-hook-form-tutorial --use-npm --template typescript
 PS C:\react\react-hook-form-tutorial> npm install react-hook-form
 
+Get value for each fields in the form
+---------------------------------------
+watch
+handleSubmit
+
 watch()
 ----------
 1. conditionally render stuff,
 2. show something in the view.
+
+Advantage of using the library
+--------------------------------
+Some behavior, e.g. if the form failed on some fields, on submit, will auto reland the cursor to the first error field. This is handled in this library already
+
+common validation:
+------------------------
+{ required: true }
+{ required: true, maxLength: 4 }
+{ valueAsNumber: true }         <<< all <input type='number'> will store as string when it comes in, this will change it to number in the data.

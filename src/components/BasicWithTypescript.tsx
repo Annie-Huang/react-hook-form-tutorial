@@ -49,7 +49,7 @@ const BasicWithTypescript = () => {
 
         <input type='submit' />
       </form>
-      */}
+
       <form
         onSubmit={handleSubmit((data) => {
           console.log('data=', data);
@@ -63,6 +63,41 @@ const BasicWithTypescript = () => {
 
         <label htmlFor='age'>Age</label>
         <input {...register('age')} type='number' id='age' />
+
+        <label htmlFor='gender'>Age</label>
+        <select {...register('gender')} id='gender'>
+          <option value=''>Select...</option>
+          <option value='male'>male</option>
+          <option value='female'>female</option>
+        </select>
+
+        <label htmlFor='developer'>Are you a developer?</label>
+        <input {...register('developer')} type='checkbox' value='yes' />
+
+        <input type='submit' />
+      </form>
+      */}
+
+      <form
+        onSubmit={handleSubmit((data) => {
+          console.log('data=', data);
+        })}
+      >
+        <label htmlFor='firstName'>First Name:</label>
+        <input {...register('firstName', { required: true })} id='First Name' />
+
+        <label htmlFor='lastName'>Last Name:</label>
+        <input
+          {...register('lastName', { required: true, maxLength: 4 })}
+          id='Last Name'
+        />
+
+        <label htmlFor='age'>Age</label>
+        <input
+          {...register('age', { valueAsNumber: true })}
+          type='number'
+          id='age'
+        />
 
         <label htmlFor='gender'>Age</label>
         <select {...register('gender')} id='gender'>
