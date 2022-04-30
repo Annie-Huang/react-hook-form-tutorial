@@ -27,9 +27,14 @@ const Basic = () => {
   // console.log('errors=', errors);
 
   // watch() will watch the whole form in an object, while watch('firstName') will only print out the firstname value.
-  // However, it will still print in console.log because every user event will trigger a rerender... (remember we add the error subscription)
+  // If you only watch('firstName'), and you only have watch('firstName') and no watch().
+  // you will find out that console.log('watch("firstName")=', watch('firstName')) does not print everything you update the 'lastName',
+  // which is very handy as we don't want that many rerender....
+  /*
   console.log('watch()=', watch());
   console.log('watch("firstName")=', watch('firstName'));
+   */
+  const firstName = watch('firstName');
 
   return (
     <div>
@@ -81,6 +86,7 @@ const Basic = () => {
           {...register('firstName', { required: 'This is required.' })}
           placeholder='First Name'
         />
+        <p>{firstName}</p>
         <p className='error'>{errors.firstName?.message}</p>
         <input
           {...register('lastName', {
