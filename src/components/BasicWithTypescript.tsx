@@ -92,12 +92,29 @@ const BasicWithTypescript = () => {
         })}
       >
         <label htmlFor='firstName'>First Name:</label>
-        <input {...register('firstName', { required: true })} id='First Name' />
-        {errors.firstName && <p className='error'>This is required</p>}
+        {/*<input {...register('firstName', { required: true })} id='First Name' />*/}
+        {/*{errors.firstName && <p className='error'>This is required</p>}*/}
+        <input
+          {...register('firstName', { required: 'This is required' })}
+          id='First Name'
+        />
+        {errors.firstName && (
+          <p className='error'>{errors.firstName.message}</p>
+        )}
 
         <label htmlFor='lastName'>Last Name:</label>
+        {/*<input*/}
+        {/*  {...register('lastName', { required: true, maxLength: 4 })}*/}
+        {/*  id='Last Name'*/}
+        {/*/>*/}
         <input
-          {...register('lastName', { required: true, maxLength: 4 })}
+          {...register('lastName', {
+            required: 'This is required',
+            maxLength: {
+              value: 4,
+              message: 'You exceeded the max length',
+            },
+          })}
           id='Last Name'
         />
 

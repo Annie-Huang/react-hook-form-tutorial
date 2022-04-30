@@ -36,3 +36,31 @@ common validation:
 { required: true }
 { required: true, maxLength: 4 }
 { valueAsNumber: true }         <<< all <input type='number'> will store as string when it comes in, this will change it to number in the data.
+
+validation in 2 ways:
+----------------------
+        <label htmlFor='firstName'>First Name:</label>
+        <input {...register('firstName', { required: true })} id='First Name' />
+        {errors.firstName && <p className='error'>This is required</p>}
+
+        ----------
+
+        <label htmlFor='firstName'>First Name:</label>
+        <input
+          {...register('firstName', { required: 'This is required' })}
+          id='First Name'
+        />
+        {errors.firstName && (
+          <p className='error'>{errors.firstName.message}</p>
+        )}
+
+        <input
+          {...register('lastName', {
+            required: 'This is required',
+            maxLength: {
+              value: 4,
+              message: 'Min length is 4',
+            },
+          })}
+          id='Last Name'
+        />
