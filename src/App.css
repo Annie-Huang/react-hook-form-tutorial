@@ -69,6 +69,10 @@ input[type='submit'],
   border-radius: 4px;
   width: 100%;
 }
+input[type='submit']:hover,
+.button:hover {
+  cursor: pointer;
+}
 
 .buttonBlack {
   background: black;
