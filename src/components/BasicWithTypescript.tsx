@@ -16,9 +16,17 @@ const BasicWithTypescript = () => {
   renderCount++;
 
   // const { register } = useForm();
-  const { register, watch, handleSubmit } = useForm<FormValues>();
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormValues>();
+
   // watch is for 1. conditionally render stuff, 2. show something in the view.
   // console.log('watch=', watch());
+
+  console.log('errors=', errors);
 
   return (
     <div>
@@ -37,7 +45,7 @@ const BasicWithTypescript = () => {
         <label htmlFor='age'>Age</label>
         <input name='age' type='number' id='age' />
 
-        <label htmlFor='gender'>Age</label>
+        <label htmlFor='gender'></label>
         <select name='gender' id='gender'>
           <option value=''>Select...</option>
           <option value='male'>male</option>
@@ -64,7 +72,7 @@ const BasicWithTypescript = () => {
         <label htmlFor='age'>Age</label>
         <input {...register('age')} type='number' id='age' />
 
-        <label htmlFor='gender'>Age</label>
+        <label htmlFor='gender'></label>
         <select {...register('gender')} id='gender'>
           <option value=''>Select...</option>
           <option value='male'>male</option>
@@ -85,6 +93,7 @@ const BasicWithTypescript = () => {
       >
         <label htmlFor='firstName'>First Name:</label>
         <input {...register('firstName', { required: true })} id='First Name' />
+        {errors.firstName && <p className='error'>This is required</p>}
 
         <label htmlFor='lastName'>Last Name:</label>
         <input
@@ -99,7 +108,7 @@ const BasicWithTypescript = () => {
           id='age'
         />
 
-        <label htmlFor='gender'>Age</label>
+        <label htmlFor='gender'></label>
         <select {...register('gender')} id='gender'>
           <option value=''>Select...</option>
           <option value='male'>male</option>
