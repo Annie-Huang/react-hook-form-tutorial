@@ -15,3 +15,8 @@ React Hook Form V7 - Get Started    (https://www.youtube.com/watch?v=DN8v7_RbVlc
 ===========================================================
 PS C:\react> npx create-react-app react-hook-form-tutorial --use-npm --template typescript
 PS C:\react\react-hook-form-tutorial> npm install react-hook-form
+
+watch()
+----------
+1. conditionally render stuff,
+2. show something in the view.

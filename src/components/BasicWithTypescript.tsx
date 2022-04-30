@@ -16,7 +16,9 @@ const BasicWithTypescript = () => {
   renderCount++;
 
   // const { register } = useForm();
-  const { register } = useForm<FormValues>();
+  const { register, watch } = useForm<FormValues>();
+  // watch is for 1. conditionally render stuff, 2. show something in the view.
+  console.log('watch=', watch());
 
   return (
     <div>
