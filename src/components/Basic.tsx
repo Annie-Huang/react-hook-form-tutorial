@@ -14,6 +14,7 @@ const Basic = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm({
     defaultValues: {
@@ -23,7 +24,12 @@ const Basic = () => {
   });
   renderCount++;
 
-  console.log('errors=', errors);
+  // console.log('errors=', errors);
+
+  // watch() will watch the whole form in an object, while watch('firstName') will only print out the firstname value.
+  // However, it will still print in console.log because every user event will trigger a rerender... (remember we add the error subscription)
+  console.log('watch()=', watch());
+  console.log('watch("firstName")=', watch('firstName'));
 
   return (
     <div>
