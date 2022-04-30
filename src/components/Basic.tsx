@@ -3,8 +3,15 @@ import { useForm } from 'react-hook-form';
 
 let renderCount = 0;
 const Basic = () => {
-  const { register, handleSubmit } = useForm();
+  // Subscribing the error state will trigger rerender....
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   renderCount++;
+
+  console.log('errors=', errors);
 
   return (
     <div>
@@ -15,7 +22,7 @@ const Basic = () => {
         <input name='lastName' placeholder='Last Name' />
         <input type='submit' />
       </form>
-      */}
+
       <form
         onSubmit={handleSubmit((data) => {
           console.log(data);
@@ -23,6 +30,22 @@ const Basic = () => {
       >
         <input {...register('firstName')} placeholder='First Name' />
         <input {...register('lastName')} placeholder='Last Name' />
+        <input type='submit' />
+      </form>
+      */}
+      <form
+        onSubmit={handleSubmit((data) => {
+          console.log('handleSubmit=', data);
+        })}
+      >
+        <input
+          {...register('firstName', { required: true })}
+          placeholder='First Name'
+        />
+        <input
+          {...register('lastName', { required: true, minLength: 4 })}
+          placeholder='Last Name'
+        />
         <input type='submit' />
       </form>
     </div>
