@@ -16,9 +16,9 @@ const BasicWithTypescript = () => {
   renderCount++;
 
   // const { register } = useForm();
-  const { register, watch } = useForm<FormValues>();
+  const { register, watch, handleSubmit } = useForm<FormValues>();
   // watch is for 1. conditionally render stuff, 2. show something in the view.
-  console.log('watch=', watch());
+  // console.log('watch=', watch());
 
   return (
     <div>
@@ -50,7 +50,11 @@ const BasicWithTypescript = () => {
         <input type='submit' />
       </form>
       */}
-      <form>
+      <form
+        onSubmit={handleSubmit((data) => {
+          console.log('data=', data);
+        })}
+      >
         <label htmlFor='firstName'>First Name:</label>
         <input {...register('firstName')} id='First Name' />
 
