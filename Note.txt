@@ -11,3 +11,4 @@ https://codesandbox.io/s/brave-elgamal-2m1kq
 
 ===========================================================
 PS C:\react> npx create-react-app react-hook-form-tutorial --use-npm --template typescript
+PS C:\react\react-hook-form-tutorial> npm install react-hook-form
