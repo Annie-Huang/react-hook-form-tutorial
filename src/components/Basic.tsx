@@ -4,11 +4,23 @@ import { useForm } from 'react-hook-form';
 let renderCount = 0;
 const Basic = () => {
   // Subscribing the error state will trigger rerender....
+  /*
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  */
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      firstName: 'bill',
+      lastName: 'luo',
+    },
+  });
   renderCount++;
 
   console.log('errors=', errors);
