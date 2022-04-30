@@ -3,6 +3,8 @@ import { useForm } from 'react-hook-form';
 
 let renderCount = 0;
 const Basic = () => {
+  renderCount++;
+
   // Subscribing the error state will trigger rerender....
   /*
   const {
@@ -22,7 +24,6 @@ const Basic = () => {
       lastName: 'luo',
     },
   });
-  renderCount++;
 
   // console.log('errors=', errors);
 
