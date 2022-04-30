@@ -61,7 +61,11 @@ const Basic = () => {
         <input type='submit' />
       </form>
       */}
-      {/* I am bit confused, if i got default value, and make the field required, clearing the field and blur the input does not make error show up straight away...*/}
+      {/*
+      I am bit confused,
+      - If i got default value, and make the field required, clearing the field and blur the input does not make error show up straight away...
+      - If I don't have default value, and the field is required, click and blur the input also not making error shows up.
+      */}
       <form
         onSubmit={handleSubmit((data) => {
           console.log('handleSubmit=', data);
@@ -71,7 +75,7 @@ const Basic = () => {
           {...register('firstName', { required: 'This is required.' })}
           placeholder='First Name'
         />
-        <p>{errors.firstName?.message}</p>
+        <p className='error'>{errors.firstName?.message}</p>
         <input
           {...register('lastName', {
             required: 'This is required.',
@@ -82,7 +86,7 @@ const Basic = () => {
           })}
           placeholder='Last Name'
         />
-        <p>{errors.lastName?.message}</p>
+        <p className='error'>{errors.lastName?.message}</p>
         <input type='submit' />
       </form>
     </div>
