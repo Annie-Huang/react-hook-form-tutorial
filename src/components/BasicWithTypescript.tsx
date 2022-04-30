@@ -35,7 +35,9 @@ const BasicWithTypescript = () => {
         description='Performant, flexible and extensible forms with easy-to-use validation.'
       />
       {/*
-      <form>
+      <form onSubmit={(e) => {
+        const data = new FormData(e.target as HTMLFormElement)
+      }}>
         <label htmlFor='firstName'>First Name:</label>
         <input name='firstName' id='First Name' />
 

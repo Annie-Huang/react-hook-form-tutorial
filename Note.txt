@@ -6,6 +6,7 @@ https://github.com/Annie-Huang/react-hook-form-tutorial
 
 https://react-hook-form.com/get-started/
 https://react-hook-form.com/get-started/#IntegratingControlledInputs
+https://react-hook-form.com/api/useform     << Got info of 'shouldUnregister' and 'mode'
 
 https://codesandbox.io/s/pensive-jepsen-lqyk7
 https://codesandbox.io/s/brave-elgamal-2m1kq
