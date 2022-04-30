@@ -32,7 +32,7 @@ const Basic = () => {
         <input {...register('lastName')} placeholder='Last Name' />
         <input type='submit' />
       </form>
-      */}
+
       <form
         onSubmit={handleSubmit((data) => {
           console.log('handleSubmit=', data);
@@ -44,6 +44,28 @@ const Basic = () => {
         />
         <input
           {...register('lastName', { required: true, minLength: 4 })}
+          placeholder='Last Name'
+        />
+        <input type='submit' />
+      </form>
+      */}
+      <form
+        onSubmit={handleSubmit((data) => {
+          console.log('handleSubmit=', data);
+        })}
+      >
+        <input
+          {...register('firstName', { required: 'This is required.' })}
+          placeholder='First Name'
+        />
+        <input
+          {...register('lastName', {
+            required: 'This is required.',
+            minLength: {
+              value: 4,
+              message: 'Min length is 4',
+            },
+          })}
           placeholder='Last Name'
         />
         <input type='submit' />
