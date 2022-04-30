@@ -64,3 +64,4 @@ validation in 2 ways:
           })}
           id='Last Name'
         />
+        {errors.lastName && <p className='error'>{errors.lastName.message}</p>}

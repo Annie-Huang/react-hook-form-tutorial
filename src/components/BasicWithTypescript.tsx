@@ -117,6 +117,7 @@ const BasicWithTypescript = () => {
           })}
           id='Last Name'
         />
+        {errors.lastName && <p className='error'>{errors.lastName.message}</p>}
 
         <label htmlFor='age'>Age</label>
         <input
