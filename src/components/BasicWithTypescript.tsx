@@ -33,7 +33,7 @@ const BasicWithTypescript = () => {
         <input name='lastName' id='Last Name' />
 
         <label htmlFor='age'>Age</label>
-        <input type='number' name='age' id='age' />
+        <input name='age' type='number' id='age' />
 
         <label htmlFor='gender'>Age</label>
         <select name='gender' id='gender'>
@@ -43,30 +43,30 @@ const BasicWithTypescript = () => {
         </select>
 
         <label htmlFor='developer'>Are you a developer?</label>
-        <input type='checkbox' name='developer' />
+        <input name='developer' type='checkbox'  value='yes' />
 
         <input type='submit' />
       </form>
       */}
       <form>
         <label htmlFor='firstName'>First Name:</label>
-        <input name='firstName' id='First Name' />
+        <input {...register('firstName')} id='First Name' />
 
         <label htmlFor='lastName'>Last Name:</label>
-        <input name='lastName' id='Last Name' />
+        <input {...register('lastName')} id='Last Name' />
 
         <label htmlFor='age'>Age</label>
-        <input type='number' name='age' id='age' />
+        <input {...register('age')} type='number' id='age' />
 
         <label htmlFor='gender'>Age</label>
-        <select name='gender' id='gender'>
+        <select {...register('gender')} id='gender'>
           <option value=''>Select...</option>
           <option value='male'>male</option>
           <option value='female'>female</option>
         </select>
 
         <label htmlFor='developer'>Are you a developer?</label>
-        <input type='checkbox' value='yes' name='developer' />
+        <input {...register('developer')} type='checkbox' value='yes' />
 
         <input type='submit' />
       </form>
