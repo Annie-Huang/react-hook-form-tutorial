@@ -18,7 +18,8 @@ type FormValues = {
 const BasicWithTypescript = () => {
   renderCount++;
 
-  // const { register } = useForm();
+  /*
+  const { register } = useForm();
   const {
     register,
     watch,
@@ -33,10 +34,27 @@ const BasicWithTypescript = () => {
       },
     },
   });
+  */
+  const {
+    register,
+    watch,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<FormValues>({
+    mode: 'onChange',
+    defaultValues: {
+      firstName: 'bill',
+      lastName: 'luo',
+      yourDetail: {
+        firstName: '',
+      },
+    },
+  });
 
   // watch is for 1. conditionally render stuff, 2. show something in the view.
   // console.log('watch=', watch());
 
+  console.log('isValid=', isValid);
   console.log('errors=', errors);
 
   return (
@@ -169,7 +187,8 @@ const BasicWithTypescript = () => {
         <label htmlFor='developer'>Are you a developer?</label>
         <input {...register('developer')} type='checkbox' value='yes' />
 
-        <input type='submit' />
+        {/*<input type='submit' />*/}
+        <input type='submit' disabled={!isValid} />
       </form>
     </div>
   );
