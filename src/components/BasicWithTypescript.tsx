@@ -41,7 +41,14 @@ const BasicWithTypescript = () => {
     register,
     watch,
     handleSubmit,
-    formState: { errors, isValid, isDirty, dirtyFields },
+    formState: {
+      errors,
+      isValid,
+      isDirty,
+      dirtyFields,
+      touchedFields,
+      isSubmitted,
+    },
   } = useForm<FormValues>({
     mode: 'onChange',
     // delayError: 500, // delay to show up the error msg
@@ -117,10 +124,14 @@ const BasicWithTypescript = () => {
 
   console.log('errors=', errors);
   // console.log('isValid=', isValid);
-  console.log('isDirty=', isDirty);
+  // console.log('isDirty=', isDirty);
   // NOTE: dirtyFields is a bit different from isDirty. If you change a field, it will show in the dirtyFields object.
   //       But if you change it back to the original value, it will be removed from the dirtyFields object.
-  console.log('dirtyFields=', dirtyFields);
+  // console.log('dirtyFields=', dirtyFields);
+  // NOTE: touchedFields will be added if you touched the field, even if you didn't make a change, like the native touch for <input>
+  console.log('touchedFields=', touchedFields);
+  // NOTE: isSubmitted only log if the the submit button be hit. Doesn't matter whether we call handleSubmit or not. Remember we will not call handleSubmit unless it pass validation?
+  console.log('isSubmitted=', isSubmitted);
 
   return (
     <div>
