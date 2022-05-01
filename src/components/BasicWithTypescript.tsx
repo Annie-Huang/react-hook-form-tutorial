@@ -10,6 +10,9 @@ type FormValues = {
   age: number;
   gender: string;
   developer: string;
+  yourDetail: {
+    firstName: string;
+  };
 };
 
 const BasicWithTypescript = () => {
@@ -25,6 +28,9 @@ const BasicWithTypescript = () => {
     defaultValues: {
       firstName: 'bill',
       lastName: 'luo',
+      yourDetail: {
+        firstName: '',
+      },
     },
   });
 
@@ -125,6 +131,17 @@ const BasicWithTypescript = () => {
           id='Last Name'
         />
         {errors.lastName && <p className='error'>{errors.lastName.message}</p>}
+
+        <label htmlFor='yourDetail.firstName'>Your Detail First Name:</label>
+        <input
+          {...register('yourDetail.firstName', {
+            required: 'This is required',
+          })}
+          id='Your Detail First Name'
+        />
+        {errors.yourDetail?.firstName && (
+          <p className='error'>{errors.yourDetail.firstName.message}</p>
+        )}
 
         <label htmlFor='age'>Age</label>
         <input
