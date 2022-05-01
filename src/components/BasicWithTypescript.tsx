@@ -51,12 +51,13 @@ const BasicWithTypescript = () => {
       yourDetail: {
         firstName: '',
       },
-      lastName2: 'Huang2',
-      lastName3: 'Huang3',
+      lastName2: 'bill',
+      lastName3: 'bill',
     },
   });
 
   // When you use validate option, you can get the validate of the field straight away.
+  // Change the default value to 'Huang2' and you can see the this field in errors when submit
   register('lastName2', {
     maxLength: {
       value: 5,
@@ -70,6 +71,7 @@ const BasicWithTypescript = () => {
   });
 
   // You can see what's inside a register is just a wrapper with name, onBlur, onChange, ref property
+  // Change the default value to 'Huang3' and you can see the this field in errors when submit
   console.log(
     'What is inside a Register ==>',
     register('lastName3', {
@@ -152,6 +154,7 @@ const BasicWithTypescript = () => {
       </form>
       */}
 
+      {/* One good thing about handleSubmit is that if the form is in error, it is not going to trigger handleSubmit... */}
       <form
         onSubmit={handleSubmit((data) => {
           console.log('data=', data);
