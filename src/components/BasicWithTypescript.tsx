@@ -64,7 +64,7 @@ const BasicWithTypescript = () => {
       message: 'Max length is 5',
     },
     validate: async (value) => {
-      console.log('lastName2 value=', value);
+      // console.log('lastName2 value=', value);
       // return value === 'bill';
       return value === 'bill' || 'The lastName2 has to be bill';
     },
@@ -80,7 +80,7 @@ const BasicWithTypescript = () => {
         message: 'Max length is 5',
       },
       validate: async (value) => {
-        console.log('lastName3 value=', value);
+        // console.log('lastName3 value=', value);
         // return value === 'bill';
         return value === 'bill' || 'The lastName3 has to be bill';
       },
@@ -90,8 +90,12 @@ const BasicWithTypescript = () => {
   // watch is for 1. conditionally render stuff, 2. show something in the view.
   // console.log('watch=', watch());
   // console.log('watch("firstName")=', watch('firstName'));
+  // console.log(
+  //   " watch(['firstName', 'lastName'])=",
+  //   watch(['firstName', 'lastName'])
+  // );
 
-  console.log('isValid=', isValid);
+  // console.log('isValid=', isValid);
   console.log('errors=', errors);
 
   return (
