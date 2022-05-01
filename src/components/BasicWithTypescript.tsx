@@ -48,6 +48,8 @@ const BasicWithTypescript = () => {
       dirtyFields,
       touchedFields,
       isSubmitted,
+      isSubmitSuccessful,
+      submitCount,
     },
   } = useForm<FormValues>({
     mode: 'onChange',
@@ -129,9 +131,12 @@ const BasicWithTypescript = () => {
   //       But if you change it back to the original value, it will be removed from the dirtyFields object.
   // console.log('dirtyFields=', dirtyFields);
   // NOTE: touchedFields will be added if you touched the field, even if you didn't make a change, like the native touch for <input>
-  console.log('touchedFields=', touchedFields);
-  // NOTE: isSubmitted only log if the the submit button be hit. Doesn't matter whether we call handleSubmit or not. Remember we will not call handleSubmit unless it pass validation?
-  console.log('isSubmitted=', isSubmitted);
+  // console.log('touchedFields=', touchedFields);
+  // NOTE: isSubmitted only log if the the submit button be clicked. Doesn't matter whether we call handleSubmit or not. Remember we will not call handleSubmit unless it pass validation?
+  // console.log('isSubmitted=', isSubmitted);
+  // NOTE: isSubmitted only log if handleSubmit is call, meaning it passes all validation when the submit button is clicked.
+  // console.log('isSubmitSuccessful=', isSubmitSuccessful);
+  // console.log('submitCount=', submitCount);
 
   return (
     <div>
