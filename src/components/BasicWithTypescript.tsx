@@ -15,6 +15,7 @@ type FormValues = {
   };
   lastName2: string;
   lastName3: string;
+  lastName4: string;
 };
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -53,9 +54,10 @@ const BasicWithTypescript = () => {
       isSubmitSuccessful,
       submitCount,
       isSubmitting,
+      isValidating,
     },
   } = useForm<FormValues>({
-    mode: 'onChange', // isValid only worked if you have mode set to be 'onChange'
+    // mode: 'onChange', // isValid only worked if you have mode set to be 'onChange'
     // delayError: 500, // delay to show up the error msg
     defaultValues: {
       firstName: 'bill',
@@ -141,7 +143,10 @@ const BasicWithTypescript = () => {
   // NOTE: isSubmitted only log if handleSubmit is call, meaning it passes all validation when the submit button is clicked.
   // console.log('isSubmitSuccessful=', isSubmitSuccessful);
   // console.log('submitCount=', submitCount);
-  console.log('isSubmitting=', isSubmitting);
+  // NOTE: Bill Lou said isSubmitting only work for async submit, but i can see it without async as well
+  // console.log('isSubmitting=', isSubmitting);
+  // NOTE: isValidating only work async validate, e.g. lastName4
+  // console.log('isValidating=', isValidating);
 
   return (
     <div>
@@ -251,6 +256,21 @@ const BasicWithTypescript = () => {
           id='Last Name'
         />
         {errors.lastName && <p className='error'>{errors.lastName.message}</p>}
+
+        {/* isValidating only work async validate */}
+        <label htmlFor='lastName4'>Last Name 4:</label>
+        <input
+          {...register('lastName4', {
+            validate: async () => {
+              await sleep(2000);
+              return true;
+            },
+          })}
+          id='Last Name'
+        />
+        {errors.lastName4 && (
+          <p className='error'>{errors.lastName4.message}</p>
+        )}
 
         <label htmlFor='yourDetail.firstName'>Your Detail First Name:</label>
         <input
