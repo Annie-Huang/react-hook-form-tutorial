@@ -21,6 +21,7 @@ React Hook Form V7 - Get Started    (https://www.youtube.com/watch?v=DN8v7_RbVlc
 Progressively improve form          (https://www.youtube.com/watch?v=PGqbe3TDlrE&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=2)
     - This one got useFieldArray info
 React Hook Form - Controller        (https://www.youtube.com/watch?v=N2UNk_UCVyA&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=14)
+React Hook Form - useForm: register (https://www.youtube.com/watch?v=JFIpCoajYkA&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=4&t=2s)
 
 ######################################################################################################################################################################
 

@@ -127,6 +127,14 @@ const BasicWithTypescript = () => {
         <label htmlFor='firstName'>First Name:</label>
         {/*<input {...register('firstName', { required: true })} id='First Name' />*/}
         {/*{errors.firstName && <p className='error'>This is required</p>}*/}
+        {/*========================================================================*/}
+        {/*<input*/}
+        {/*  {...register('firstName', {*/}
+        {/*    required: { value: true, message: 'This is required' },*/}
+        {/*  })}*/}
+        {/*  id='First Name'*/}
+        {/*/>*/}
+        {/* NOTE: You would have the shortcut for required like below....*/}
         <input
           {...register('firstName', { required: 'This is required' })}
           id='First Name'
