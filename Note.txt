@@ -18,6 +18,14 @@ React Hook Form V7 - Get Started    (https://www.youtube.com/watch?v=DN8v7_RbVlc
 PS C:\react> npx create-react-app react-hook-form-tutorial --use-npm --template typescript
 PS C:\react\react-hook-form-tutorial> npm install react-hook-form
 
+mode:
+---------
+onSubmit is the default and it's the closest to the native behavior:
+    no validation when user actually starts to interact with the form until they actually pressing the submit button.
+    And then the error will be attached.
+Most of the time you would want this one, it basically do this:
+    First time, errors will only be attached when you do onSubmit. Subsequently, on change of each field.
+
 Get value for each fields in the form
 ---------------------------------------
 watch
