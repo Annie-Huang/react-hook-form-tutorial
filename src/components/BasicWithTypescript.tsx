@@ -41,7 +41,7 @@ const BasicWithTypescript = () => {
     register,
     watch,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors, isValid, isDirty, dirtyFields },
   } = useForm<FormValues>({
     mode: 'onChange',
     // delayError: 500, // delay to show up the error msg
@@ -115,8 +115,12 @@ const BasicWithTypescript = () => {
   // Correct approach:
   // <p>{firstName === 'bill1' ? 'This is a fake one' : 'wait'}</p>
 
-  // console.log('isValid=', isValid);
   console.log('errors=', errors);
+  // console.log('isValid=', isValid);
+  console.log('isDirty=', isDirty);
+  // NOTE: dirtyFields is a bit different from isDirty. If you change a field, it will show in the dirtyFields object.
+  //       But if you change it back to the original value, it will be removed from the dirtyFields object.
+  console.log('dirtyFields=', dirtyFields);
 
   return (
     <div>

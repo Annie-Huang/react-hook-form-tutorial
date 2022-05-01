@@ -8,6 +8,7 @@ https://react-hook-form.com/get-started/
 https://react-hook-form.com/get-started/#IntegratingControlledInputs
 https://react-hook-form.com/api/useform                     << Got info of 'shouldUnregister' and 'mode'
 https://react-hook-form.com/api/useform/register            << Check the option section.
+https://react-hook-form.com/api/useform/formstate
 https://react-hook-form.com/api/usecontroller/controller
 
 https://github.com/Annie-Huang/react-hook-form/tree/master/examples     << Got the whole code sandbox list.
