@@ -69,9 +69,13 @@ input[type='submit'],
   border-radius: 4px;
   width: 100%;
 }
-input[type='submit']:hover,
-.button:hover {
+input[type='submit']:hover:not:disabled,
+.button:hover:not:disabled {
   cursor: pointer;
+}
+input[type='submit']:disabled,
+.button:disabled {
+  opacity: 0.5;
 }
 
 .buttonBlack {
