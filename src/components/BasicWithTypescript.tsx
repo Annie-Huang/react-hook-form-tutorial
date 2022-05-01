@@ -42,6 +42,7 @@ const BasicWithTypescript = () => {
     formState: { errors, isValid },
   } = useForm<FormValues>({
     mode: 'onChange',
+    // delayError: 500, // delay to show up the error msg
     defaultValues: {
       firstName: 'bill',
       lastName: 'luo',
