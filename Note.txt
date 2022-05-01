@@ -7,6 +7,7 @@ https://github.com/Annie-Huang/react-hook-form-tutorial
 https://react-hook-form.com/get-started/
 https://react-hook-form.com/get-started/#IntegratingControlledInputs
 https://react-hook-form.com/api/useform                     << Got info of 'shouldUnregister' and 'mode'
+https://react-hook-form.com/api/useform/register            << Check the option section.
 https://react-hook-form.com/api/usecontroller/controller
 
 https://github.com/Annie-Huang/react-hook-form/tree/master/examples     << Got the whole code sandbox list.
@@ -19,6 +20,7 @@ React Hook Form - Get Started       (https://www.youtube.com/watch?v=RkXv4AXXC_4
 React Hook Form V7 - Get Started    (https://www.youtube.com/watch?v=DN8v7_RbVlc&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=1&t=93s)
 Progressively improve form          (https://www.youtube.com/watch?v=PGqbe3TDlrE&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=2)
     - This one got useFieldArray info
+React Hook Form - Controller        (https://www.youtube.com/watch?v=N2UNk_UCVyA&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=14)
 
 ######################################################################################################################################################################
 
@@ -78,8 +80,10 @@ https://github.com/Annie-Huang/react-hook-form/blob/master/examples/V7/getValues
 
 https://github.com/Annie-Huang/react-hook-form/blob/master/examples/V7/normalizeField.tsx
 https://github.com/Annie-Huang/react-hook-form/blob/master/examples/V7/parseFormatInputValues.tsx
+https://github.com/Annie-Huang/react-hook-form/blob/master/examples/V7/customMaskedInputWithController.tsx
 https://github.com/Annie-Huang/react-hook-form/blob/master/examples/V7/typescript/Control.tsx
 https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5
+https://codesandbox.io/s/build-react-hook-form-controller-component-from-scratch-zl17q     << This is not really apply because it's building Controller from scratch
 https://react-hook-form.com/api/usecontroller/controller
     - This one got Controller syntax. and it use TextField in '@material-ui/core'
       <Controller
@@ -94,6 +98,39 @@ https://react-hook-form.com/api/usecontroller/controller
         control={control}
         defaultValue={0}
       />
+    <Controller
+      control={control}
+      name="test"
+      render={({
+        field: { onChange, onBlur, value, name, ref },
+        fieldState: { invalid, isTouched, isDirty, error },
+        formState,
+      }) => (
+        <Checkbox
+          onBlur={onBlur} // notify when input is touched
+          onChange={onChange} // send value to hook form
+          checked={value}
+          inputRef={ref}
+        />
+      )}
+    />
+    <Controller
+      render={({
+        field: { onChange, onBlur, value, name, ref },
+        fieldState: { invalid, isTouched, isDirty, error },
+      }) => (
+        <TextField
+          value={value}
+          onChange={onChange} // send value to hook form
+          onBlur={onBlur} // notify when input is touched
+          inputRef={ref} // wire up the input ref
+        />
+      )}
+      name="TextField"
+      control={control}
+      rules={{ required: true }}
+    />
+
 
 https://github.com/Annie-Huang/react-hook-form/blob/master/examples/V7/getValuesCompareFields.tsx
 https://github.com/Annie-Huang/react-hook-form/blob/master/examples/V7/setValue.tsx

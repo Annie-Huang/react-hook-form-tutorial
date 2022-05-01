@@ -54,6 +54,7 @@ const BasicWithTypescript = () => {
 
   // watch is for 1. conditionally render stuff, 2. show something in the view.
   // console.log('watch=', watch());
+  // console.log('watch("firstName")=', watch('firstName'));
 
   console.log('isValid=', isValid);
   console.log('errors=', errors);
@@ -188,8 +189,8 @@ const BasicWithTypescript = () => {
         <label htmlFor='developer'>Are you a developer?</label>
         <input {...register('developer')} type='checkbox' value='yes' />
 
-        {/*<input type='submit' />*/}
-        <input type='submit' disabled={!isValid} />
+        <input type='submit' />
+        {/*<input type='submit' disabled={!isValid} />*/}
       </form>
     </div>
   );
