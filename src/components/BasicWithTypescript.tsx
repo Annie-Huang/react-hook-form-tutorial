@@ -146,6 +146,7 @@ const BasicWithTypescript = () => {
         <label htmlFor='age'>Age</label>
         <input
           {...register('age', {
+            required: true, // If you don't put a default value and don't have required, the empty will become NaN, and will not do min or max check
             valueAsNumber: true,
             min: { value: 0, message: 'You should be at least 0 years old' },
             max: {
