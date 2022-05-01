@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Headers from './Header';
 
@@ -94,8 +94,19 @@ const BasicWithTypescript = () => {
   //   " watch(['firstName', 'lastName'])=",
   //   watch(['firstName', 'lastName'])
   // );
+  // --------------------------------------------
   // NOTE: 'bill2' in below is the initially value of 'firstName', but you would usually set it in defaultValues rather than doing it like this.
   // console.log('watch("firstName")=', watch('firstName', 'bill2'));
+  // --------------------------------------------
+  // NOTE: the following is handy if you want to monitor every move from the user (e.g enter letters in each field)
+  // useEffect(() => {
+  //   const subscription = watch((data) => {
+  //     console.log('data has change:', data);
+  //   });
+  //   return () => {
+  //     subscription.unsubscribe();
+  //   };
+  // }, [watch]);
 
   // console.log('isValid=', isValid);
   console.log('errors=', errors);
