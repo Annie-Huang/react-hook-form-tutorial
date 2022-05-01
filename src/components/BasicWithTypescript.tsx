@@ -14,6 +14,7 @@ type FormValues = {
     firstName: string;
   };
   lastName2: string;
+  lastName3: string;
 };
 
 const BasicWithTypescript = () => {
@@ -50,7 +51,8 @@ const BasicWithTypescript = () => {
       yourDetail: {
         firstName: '',
       },
-      lastName2: 'Huang',
+      lastName2: 'Huang2',
+      lastName3: 'Huang3',
     },
   });
 
@@ -66,6 +68,22 @@ const BasicWithTypescript = () => {
       return value === 'bill' || 'The lastName2 has to be bill';
     },
   });
+
+  // You can see what's inside a register is just a wrapper with name, onBlur, onChange, ref property
+  console.log(
+    'What is inside a Register ==>',
+    register('lastName3', {
+      maxLength: {
+        value: 5,
+        message: 'Max length is 5',
+      },
+      validate: async (value) => {
+        console.log('lastName3 value=', value);
+        // return value === 'bill';
+        return value === 'bill' || 'The lastName3 has to be bill';
+      },
+    })
+  );
 
   // watch is for 1. conditionally render stuff, 2. show something in the view.
   // console.log('watch=', watch());
