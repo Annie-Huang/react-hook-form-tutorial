@@ -107,6 +107,13 @@ const BasicWithTypescript = () => {
   //     subscription.unsubscribe();
   //   };
   // }, [watch]);
+  // --------------------------------------------
+  // NOTE: if you are assigning a value to a watch function, it should really be used inside the render rather than in the useEffect
+  // E.g. this is the wrong approach:
+  // const firstName = watch('firstName');
+  // useEffect(() => {...}, [firstName])
+  // Correct approach:
+  // <p>{firstName === 'bill1' ? 'This is a fake one' : 'wait'}</p>
 
   // console.log('isValid=', isValid);
   console.log('errors=', errors);
