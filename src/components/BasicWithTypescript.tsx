@@ -13,6 +13,7 @@ type FormValues = {
   yourDetail: {
     firstName: string;
   };
+  lastName2: string;
 };
 
 const BasicWithTypescript = () => {
@@ -49,6 +50,20 @@ const BasicWithTypescript = () => {
       yourDetail: {
         firstName: '',
       },
+      lastName2: 'Huang',
+    },
+  });
+
+  // When you use validate option, you can get the validate of the field straight away.
+  register('lastName2', {
+    maxLength: {
+      value: 5,
+      message: 'Max length is 5',
+    },
+    validate: async (value) => {
+      console.log('lastName2 value=', value);
+      // return value === 'bill';
+      return value === 'bill' || 'The lastName2 has to be bill';
     },
   });
 

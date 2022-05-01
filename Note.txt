@@ -42,6 +42,7 @@ https://github.com/Annie-Huang/react-hook-form/blob/master/examples/V6/custom-ma
 
 https://github.com/Annie-Huang/react-hook-form/blob/master/examples/V7/customValidation.tsx
 https://github.com/Annie-Huang/react-hook-form/blob/master/examples/V7/disableNativeValidation.tsx
+https://react-hook-form.com/api/useform/register
     - This is with validate syntax
           <input
             defaultValue={initialValues.age}
@@ -63,6 +64,28 @@ https://github.com/Annie-Huang/react-hook-form/blob/master/examples/V7/disableNa
                 value.includes('@') || "Email must include '@' symbol",
             })}
           />
+        <input
+          {...register("test1", {
+            validate: {
+              positive: v => parseInt(v) > 0 || 'should be greater than 0',
+              lessThanTen: v => parseInt(v) < 10 || 'should be lower than 10',
+              // you can do asynchronous validation as well
+              checkUrl: async () => await fetch() || 'error message',  // JS only: <p>error message</p> TS only support string
+              messages: v => !v && ['test', 'test2']
+            }
+          })}
+        />
+          register('lastName2', {
+            maxLength: {
+              value: 5,
+              message: 'Max length is 5',
+            },
+            validate: async (value) => {
+              console.log('lastName2 value=', value);
+              // return value === 'bill';
+              return value === 'bill' || 'The lastName2 has to be bill';
+            },
+          });
 
 https://github.com/Annie-Huang/react-hook-form/blob/master/examples/V7/getValuesCompareFields.tsx
     - This one is needing to compare with another field value
