@@ -21,7 +21,12 @@ const BasicWithTypescript = () => {
     watch,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormValues>();
+  } = useForm<FormValues>({
+    defaultValues: {
+      firstName: 'bill',
+      lastName: 'luo',
+    },
+  });
 
   // watch is for 1. conditionally render stuff, 2. show something in the view.
   // console.log('watch=', watch());
