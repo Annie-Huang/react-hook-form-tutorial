@@ -123,10 +123,18 @@ const BasicWithTypescript = () => {
 
         <label htmlFor='age'>Age</label>
         <input
-          {...register('age', { valueAsNumber: true })}
+          {...register('age', {
+            valueAsNumber: true,
+            min: { value: 0, message: 'You should be at least 0 years old' },
+            max: {
+              value: 120,
+              message: 'You cannot be more than 120 years old',
+            },
+          })}
           type='number'
           id='age'
         />
+        {errors.age && <p className='error'>{errors.age.message}</p>}
 
         <label htmlFor='gender'></label>
         <select {...register('gender')} id='gender'>
