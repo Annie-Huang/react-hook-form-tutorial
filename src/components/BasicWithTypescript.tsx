@@ -17,6 +17,8 @@ type FormValues = {
   lastName3: string;
 };
 
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 const BasicWithTypescript = () => {
   renderCount++;
 
@@ -50,9 +52,10 @@ const BasicWithTypescript = () => {
       isSubmitted,
       isSubmitSuccessful,
       submitCount,
+      isSubmitting,
     },
   } = useForm<FormValues>({
-    mode: 'onChange',
+    mode: 'onChange', // isValid only worked if you have mode set to be 'onChange'
     // delayError: 500, // delay to show up the error msg
     defaultValues: {
       firstName: 'bill',
@@ -126,6 +129,7 @@ const BasicWithTypescript = () => {
 
   console.log('errors=', errors);
   // console.log('isValid=', isValid);
+  // NOTE: only worked when you have mode set to be 'onChange'
   // console.log('isDirty=', isDirty);
   // NOTE: dirtyFields is a bit different from isDirty. If you change a field, it will show in the dirtyFields object.
   //       But if you change it back to the original value, it will be removed from the dirtyFields object.
@@ -137,6 +141,7 @@ const BasicWithTypescript = () => {
   // NOTE: isSubmitted only log if handleSubmit is call, meaning it passes all validation when the submit button is clicked.
   // console.log('isSubmitSuccessful=', isSubmitSuccessful);
   // console.log('submitCount=', submitCount);
+  console.log('isSubmitting=', isSubmitting);
 
   return (
     <div>
@@ -199,6 +204,13 @@ const BasicWithTypescript = () => {
       */}
 
       {/* One good thing about handleSubmit is that if the form is in error, it is not going to trigger handleSubmit... */}
+      {/*<form*/}
+      {/*  onSubmit={handleSubmit(async (data) => {*/}
+      {/*    // Bill Lou said isSubmitting only work for async submit, but i can see it without async as well....*/}
+      {/*    await sleep(3000);*/}
+      {/*    console.log('data=', data);*/}
+      {/*  })}*/}
+      {/*>*/}
       <form
         onSubmit={handleSubmit((data) => {
           console.log('data=', data);
