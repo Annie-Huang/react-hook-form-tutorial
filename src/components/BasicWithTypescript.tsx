@@ -94,6 +94,8 @@ const BasicWithTypescript = () => {
   //   " watch(['firstName', 'lastName'])=",
   //   watch(['firstName', 'lastName'])
   // );
+  // NOTE: 'bill2' in below is the initially value of 'firstName', but you would usually set it in defaultValues rather than doing it like this.
+  // console.log('watch("firstName")=', watch('firstName', 'bill2'));
 
   // console.log('isValid=', isValid);
   console.log('errors=', errors);
