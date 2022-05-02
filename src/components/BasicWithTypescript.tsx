@@ -16,6 +16,7 @@ type FormValues = {
   lastName2: string;
   lastName3: string;
   lastName4: string;
+  lastName5: string;
 };
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -67,6 +68,7 @@ const BasicWithTypescript = () => {
       },
       lastName2: 'bill',
       lastName3: 'bill',
+      lastName5: 'bill',
     },
   });
 
@@ -158,6 +160,7 @@ const BasicWithTypescript = () => {
   };
   */
   // Cannot find the type of the event, assigning it to React.SyntheticEvent or SyntheticBaseEvent does not work..
+  // If it failed any validation, e.g. onError is called, it will not called handleSubmit(onSubmit) function
   const onSubmit = (data: FormValues, event: any) => {
     console.log('data=', data);
     console.log('event=', event); // the form is in event.target
@@ -280,10 +283,20 @@ const BasicWithTypescript = () => {
               return true;
             },
           })}
-          id='Last Name'
+          id='Last Name 4'
         />
         {errors.lastName4 && (
           <p className='error'>{errors.lastName4.message}</p>
+        )}
+
+        {/* When you set a field to be disabled, it has the undefined value when submitting (even through it got default value). This is the same as native form behavior */}
+        <label htmlFor='lastName5'>Last Name 5:</label>
+        <input
+          {...register('lastName5', { disabled: true })}
+          id='Last Name 5'
+        />
+        {errors.lastName5 && (
+          <p className='error'>{errors.lastName5.message}</p>
         )}
 
         <label htmlFor='yourDetail.firstName'>Your Detail First Name:</label>
