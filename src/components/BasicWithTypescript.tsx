@@ -171,7 +171,7 @@ const BasicWithTypescript = () => {
     await sleep(3000);
     console.log('data=', data);
   };
-  */
+
   const onSubmit = async (data: FormValues) => {
     try {
       await sleep(3000);
@@ -187,6 +187,10 @@ const BasicWithTypescript = () => {
         message: 'something is wrong',
       });
     }
+  };
+  */
+  const onSubmit = async (data: FormValues) => {
+    throw new Error('test');
   };
 
   const onError = () => {
@@ -252,8 +256,16 @@ const BasicWithTypescript = () => {
       */}
 
       {/* One good thing about handleSubmit is that if the form is in error, it is not going to trigger handleSubmit... */}
-      {/*<form onSubmit={handleSubmit(onSubmit, onError)}>*/}
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form
+        onSubmit={(e) =>
+          handleSubmit(onSubmit)(e).catch(() => {
+            console.log('e', e);
+          })
+        }
+      >
+        {/*<form onSubmit={handleSubmit(onSubmit)}>*/}
+        {/*<form onSubmit={handleSubmit(onSubmit, onError)}>*/}
+
         <label htmlFor='firstName'>First Name:</label>
         {/*<input {...register('firstName', { required: true })} id='First Name' />*/}
         {/*{errors.firstName && <p className='error'>This is required</p>}*/}
