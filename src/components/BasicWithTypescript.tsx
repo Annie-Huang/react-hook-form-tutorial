@@ -158,12 +158,18 @@ const BasicWithTypescript = () => {
   const onSubmit = (data: FormValues) => {
     console.log('data=', data);
   };
-  */
   // Cannot find the type of the event, assigning it to React.SyntheticEvent or SyntheticBaseEvent does not work..
   // If it failed any validation, e.g. onError is called, it will not called handleSubmit(onSubmit) function
   const onSubmit = (data: FormValues, event: any) => {
     console.log('data=', data);
     console.log('event=', event); // the form is in event.target
+  };
+  */
+  // onSubmit function can be async as well
+  const onSubmit = async (data: FormValues) => {
+    // Bill Lou said isSubmitting only work for async submit, but i can see it without async as well....
+    await sleep(3000);
+    console.log('data=', data);
   };
 
   const onError = () => {
@@ -229,15 +235,8 @@ const BasicWithTypescript = () => {
       */}
 
       {/* One good thing about handleSubmit is that if the form is in error, it is not going to trigger handleSubmit... */}
-      {/*<form*/}
-      {/*  onSubmit={handleSubmit(async (data) => {*/}
-      {/*    // Bill Lou said isSubmitting only work for async submit, but i can see it without async as well....*/}
-      {/*    await sleep(3000);*/}
-      {/*    console.log('data=', data);*/}
-      {/*  })}*/}
-      {/*>*/}
-      {/*<form onSubmit={handleSubmit(onSubmit)}>*/}
-      <form onSubmit={handleSubmit(onSubmit, onError)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {/*<form onSubmit={handleSubmit(onSubmit, onError)}>*/}
         <label htmlFor='firstName'>First Name:</label>
         {/*<input {...register('firstName', { required: true })} id='First Name' />*/}
         {/*{errors.firstName && <p className='error'>This is required</p>}*/}
