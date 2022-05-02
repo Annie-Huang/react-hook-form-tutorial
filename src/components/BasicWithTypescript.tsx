@@ -259,6 +259,7 @@ const BasicWithTypescript = () => {
       */}
 
       {/* One good thing about handleSubmit is that if the form is in error, it is not going to trigger handleSubmit... */}
+      {/* Handle the code when onSubmit is throwing errors */}
       {/*<form*/}
       {/*  onSubmit={(e) =>*/}
       {/*    handleSubmit(onSubmit)(e).catch(() => {*/}
@@ -266,10 +267,9 @@ const BasicWithTypescript = () => {
       {/*    })*/}
       {/*  }*/}
       {/*>*/}
-      <form>
-        {/*<form onSubmit={handleSubmit(onSubmit)}>*/}
-        {/*<form onSubmit={handleSubmit(onSubmit, onError)}>*/}
-
+      {/*<form>*/}
+      {/*<form onSubmit={handleSubmit(onSubmit, onError)}>*/}
+      <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor='firstName'>First Name:</label>
         {/*<input {...register('firstName', { required: true })} id='First Name' />*/}
         {/*{errors.firstName && <p className='error'>This is required</p>}*/}
@@ -371,6 +371,8 @@ const BasicWithTypescript = () => {
         <input type='submit' />
         {/*<input type='submit' disabled={!isValid} />*/}
 
+        {/* Only got <form></form> and do submit through button click:
+            Should not do this, it will decrease accessibility, e.g. press enter will not trigger form submission */}
         <button
           type='button'
           onClick={(e) => {
