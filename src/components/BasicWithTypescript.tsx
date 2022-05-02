@@ -163,6 +163,10 @@ const BasicWithTypescript = () => {
     console.log('event=', event); // the form is in event.target
   };
 
+  const onError = () => {
+    console.log('--------- WRONG ---------');
+  };
+
   return (
     <div>
       <Headers
@@ -229,7 +233,8 @@ const BasicWithTypescript = () => {
       {/*    console.log('data=', data);*/}
       {/*  })}*/}
       {/*>*/}
-      <form onSubmit={handleSubmit(onSubmit)}>
+      {/*<form onSubmit={handleSubmit(onSubmit)}>*/}
+      <form onSubmit={handleSubmit(onSubmit, onError)}>
         <label htmlFor='firstName'>First Name:</label>
         {/*<input {...register('firstName', { required: true })} id='First Name' />*/}
         {/*{errors.firstName && <p className='error'>This is required</p>}*/}
