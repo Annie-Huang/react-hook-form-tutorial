@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { BaseSyntheticEvent, SyntheticEvent, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Headers from './Header';
 
@@ -153,9 +153,14 @@ const BasicWithTypescript = () => {
     e.preventDefault();
     const data = new FormData(e.target as HTMLFormElement);
   }
-  */
   const onSubmit = (data: FormValues) => {
     console.log('data=', data);
+  };
+  */
+  // Cannot find the type of the event, assigning it to React.SyntheticEvent or SyntheticBaseEvent does not work..
+  const onSubmit = (data: FormValues, event: any) => {
+    console.log('data=', data);
+    console.log('event=', event); // the form is in event.target
   };
 
   return (
