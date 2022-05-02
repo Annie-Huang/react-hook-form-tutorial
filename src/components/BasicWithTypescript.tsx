@@ -171,7 +171,6 @@ const BasicWithTypescript = () => {
     await sleep(3000);
     console.log('data=', data);
   };
-
   const onSubmit = async (data: FormValues) => {
     try {
       await sleep(3000);
@@ -188,9 +187,13 @@ const BasicWithTypescript = () => {
       });
     }
   };
-  */
   const onSubmit = async (data: FormValues) => {
     throw new Error('test');
+  };
+  */
+  const onSubmit = (data: FormValues, event: any) => {
+    console.log('data=', data);
+    console.log('event=', event); // the form is in event.target
   };
 
   const onError = () => {
@@ -256,13 +259,14 @@ const BasicWithTypescript = () => {
       */}
 
       {/* One good thing about handleSubmit is that if the form is in error, it is not going to trigger handleSubmit... */}
-      <form
-        onSubmit={(e) =>
-          handleSubmit(onSubmit)(e).catch(() => {
-            console.log('e', e);
-          })
-        }
-      >
+      {/*<form*/}
+      {/*  onSubmit={(e) =>*/}
+      {/*    handleSubmit(onSubmit)(e).catch(() => {*/}
+      {/*      console.log('e', e);*/}
+      {/*    })*/}
+      {/*  }*/}
+      {/*>*/}
+      <form>
         {/*<form onSubmit={handleSubmit(onSubmit)}>*/}
         {/*<form onSubmit={handleSubmit(onSubmit, onError)}>*/}
 
@@ -366,6 +370,15 @@ const BasicWithTypescript = () => {
 
         <input type='submit' />
         {/*<input type='submit' disabled={!isValid} />*/}
+
+        <button
+          type='button'
+          onClick={(e) => {
+            handleSubmit(onSubmit, onError)(e);
+          }}
+        >
+          Fake Submit
+        </button>
       </form>
     </div>
   );
