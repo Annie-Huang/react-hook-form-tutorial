@@ -57,6 +57,7 @@ const BasicWithTypescript = () => {
       isSubmitting,
       isValidating,
     },
+    setError,
   } = useForm<FormValues>({
     // mode: 'onChange', // isValid only worked if you have mode set to be 'onChange'
     // delayError: 500, // delay to show up the error msg
@@ -164,12 +165,28 @@ const BasicWithTypescript = () => {
     console.log('data=', data);
     console.log('event=', event); // the form is in event.target
   };
-  */
   // onSubmit function can be async as well
   const onSubmit = async (data: FormValues) => {
     // Bill Lou said isSubmitting only work for async submit, but i can see it without async as well....
     await sleep(3000);
     console.log('data=', data);
+  };
+  */
+  const onSubmit = async (data: FormValues) => {
+    try {
+      await sleep(3000);
+      console.log('data=', data);
+    } catch (e) {
+      // setError('service', {
+      //   type: 'serverSideError',
+      //   message: 'something is wrong',
+      // });
+      // setError has to set to a specific field.
+      setError('firstName', {
+        type: 'serverSideError',
+        message: 'something is wrong',
+      });
+    }
   };
 
   const onError = () => {
@@ -235,8 +252,8 @@ const BasicWithTypescript = () => {
       */}
 
       {/* One good thing about handleSubmit is that if the form is in error, it is not going to trigger handleSubmit... */}
+      {/*<form onSubmit={handleSubmit(onSubmit, onError)}>*/}
       <form onSubmit={handleSubmit(onSubmit)}>
-        {/*<form onSubmit={handleSubmit(onSubmit, onError)}>*/}
         <label htmlFor='firstName'>First Name:</label>
         {/*<input {...register('firstName', { required: true })} id='First Name' />*/}
         {/*{errors.firstName && <p className='error'>This is required</p>}*/}
