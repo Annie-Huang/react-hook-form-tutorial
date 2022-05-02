@@ -148,6 +148,16 @@ const BasicWithTypescript = () => {
   // NOTE: isValidating only work async validate, e.g. lastName4
   // console.log('isValidating=', isValidating);
 
+  /*
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target as HTMLFormElement);
+  }
+  */
+  const onSubmit = (data: FormValues) => {
+    console.log('data=', data);
+  };
+
   return (
     <div>
       <Headers
@@ -155,9 +165,7 @@ const BasicWithTypescript = () => {
         description='Performant, flexible and extensible forms with easy-to-use validation.'
       />
       {/*
-      <form onSubmit={(e) => {
-        const data = new FormData(e.target as HTMLFormElement)
-      }}>
+      <form onSubmit={onSubmit}>
         <label htmlFor='firstName'>First Name:</label>
         <input name='firstName' id='First Name' />
 
@@ -216,11 +224,7 @@ const BasicWithTypescript = () => {
       {/*    console.log('data=', data);*/}
       {/*  })}*/}
       {/*>*/}
-      <form
-        onSubmit={handleSubmit((data) => {
-          console.log('data=', data);
-        })}
-      >
+      <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor='firstName'>First Name:</label>
         {/*<input {...register('firstName', { required: true })} id='First Name' />*/}
         {/*{errors.firstName && <p className='error'>This is required</p>}*/}
