@@ -59,6 +59,7 @@ const BasicWithTypescript = () => {
     },
     setError,
     setValue,
+    reset,
   } = useForm<FormValues>({
     // mode: 'onChange', // isValid only worked if you have mode set to be 'onChange'
     // delayError: 500, // delay to show up the error msg
@@ -136,7 +137,7 @@ const BasicWithTypescript = () => {
   console.log('errors=', errors);
   // console.log('isValid=', isValid);
   // NOTE: only worked when you have mode set to be 'onChange'. isDirty is more like the native form of isDirty state
-  // console.log('isDirty=', isDirty);
+  console.log('isDirty=', isDirty);
   // NOTE: dirtyFields is a bit different from isDirty. If you change a field, it will show in the dirtyFields object.
   //       But if you change it back to the original value, it will be removed from the dirtyFields object.
   // console.log('dirtyFields=', dirtyFields);
@@ -401,6 +402,26 @@ const BasicWithTypescript = () => {
           }}
         >
           setValue
+        </button>
+
+        <button
+          type='button'
+          // NOTE: Reset the form to the original default value
+          // onClick={() => reset()}
+          // NOTE: Reset the form to new values + change the original default values to the new values as well
+          // onClick={() => reset({ firstName: 'annie', lastName: 'huang' })}
+          // NOTE: Reset the form to new values + NOT change the original default values
+          // You do this when you have initial value as empty and reset will fill the form with new value, isDirty is true.
+          // But because original value didn't change, when you delete the value inthe form, isDirty will change back to false.
+          // You cannot see it in here, run the <TestReset> component to see.
+          onClick={() =>
+            reset(
+              { firstName: 'annie', lastName: 'huang' },
+              { keepDefaultValues: true }
+            )
+          }
+        >
+          reset
         </button>
 
         <input type='submit' />
