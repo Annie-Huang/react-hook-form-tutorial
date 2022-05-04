@@ -58,6 +58,7 @@ const BasicWithTypescript = () => {
       isValidating,
     },
     setError,
+    setValue,
   } = useForm<FormValues>({
     // mode: 'onChange', // isValid only worked if you have mode set to be 'onChange'
     // delayError: 500, // delay to show up the error msg
@@ -134,13 +135,13 @@ const BasicWithTypescript = () => {
 
   console.log('errors=', errors);
   // console.log('isValid=', isValid);
-  // NOTE: only worked when you have mode set to be 'onChange'
-  // console.log('isDirty=', isDirty);
+  // NOTE: only worked when you have mode set to be 'onChange'. isDirty is more like the native form of isDirty state
+  console.log('isDirty=', isDirty);
   // NOTE: dirtyFields is a bit different from isDirty. If you change a field, it will show in the dirtyFields object.
   //       But if you change it back to the original value, it will be removed from the dirtyFields object.
-  // console.log('dirtyFields=', dirtyFields);
+  console.log('dirtyFields=', dirtyFields);
   // NOTE: touchedFields will be added if you touched the field, even if you didn't make a change, like the native touch for <input>
-  // console.log('touchedFields=', touchedFields);
+  console.log('touchedFields=', touchedFields);
   // NOTE: isSubmitted only log if the the submit button be clicked. Doesn't matter whether we call handleSubmit or not. Remember we will not call handleSubmit unless it pass validation?
   // console.log('isSubmitted=', isSubmitted);
   // NOTE: isSubmitted only log if handleSubmit is call, meaning it passes all validation when the submit button is clicked.
@@ -367,6 +368,21 @@ const BasicWithTypescript = () => {
 
         <label htmlFor='developer'>Are you a developer?</label>
         <input {...register('developer')} type='checkbox' value='yes' />
+
+        <button
+          type='button'
+          // onClick={() => setValue('yourDetail.firstName', 'annie')}
+          // ShouldDirty can be seen with isDirty, dirtyFields properties from formState. Component will re-render.
+          // onClick={() =>
+          //   setValue('yourDetail.firstName', 'annie', { shouldDirty: true })
+          // }
+          // ShouldDirty can be seen with touchFields properties from formState. Component will re-render.
+          onClick={() =>
+            setValue('yourDetail.firstName', 'annie', { shouldTouch: true })
+          }
+        >
+          setValue
+        </button>
 
         <input type='submit' />
         {/*<input type='submit' disabled={!isValid} />*/}

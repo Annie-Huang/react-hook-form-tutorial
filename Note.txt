@@ -26,6 +26,7 @@ React Hook Form - useForm: register     (https://www.youtube.com/watch?v=JFIpCoa
 React Hook Form - useForm: watch        (https://www.youtube.com/watch?v=3qLd69WMqKk&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=5)
 React Hook Form - useForm: formState    (https://www.youtube.com/watch?v=4kzd572NbkM&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=6)
 react hook form - useForm: handleSubmit (https://www.youtube.com/watch?v=KzcPKB9SOEk&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=11)
+React Hook Form - useForm: setValue     (https://www.youtube.com/watch?v=qpv51sCH3fI&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=7)
 
 ######################################################################################################################################################################
 
