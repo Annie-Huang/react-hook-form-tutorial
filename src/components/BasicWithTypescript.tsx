@@ -383,9 +383,9 @@ const BasicWithTypescript = () => {
           // }
           // NOTE: shouldValidate can be seen with errors properties from formState. Component will re-render.
           // If you want to check isValid as well make sure you change mode to be 'onChange'
-          onClick={() =>
-            setValue('yourDetail.firstName', 'annie', { shouldValidate: true })
-          }
+          // onClick={() =>
+          //   setValue('yourDetail.firstName', 'annie', { shouldValidate: true })
+          // }
           // NOTE: if you have nesting fields, you can do all nesting one at the same time, e.g. below. However, we don't have nested in our example.
           // onClick={() =>
           //   setValue(
@@ -394,6 +394,11 @@ const BasicWithTypescript = () => {
           //     { shouldValidate: true }
           //   )
           // }
+          // NOTE: cannot set multiple first level fields in one go, need to do separate setValue
+          onClick={() => {
+            setValue('yourDetail.firstName', 'annie', { shouldValidate: true });
+            setValue('age', 10, { shouldValidate: true });
+          }}
         >
           setValue
         </button>
