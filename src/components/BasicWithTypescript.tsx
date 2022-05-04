@@ -386,6 +386,14 @@ const BasicWithTypescript = () => {
           onClick={() =>
             setValue('yourDetail.firstName', 'annie', { shouldValidate: true })
           }
+          // NOTE: if you have nesting fields, you can do all nesting one at the same time, e.g. below. However, we don't have nested in our example.
+          // onClick={() =>
+          //   setValue(
+          //     'yourDetail',
+          //     { firstName: 'annie', lastName: 'huang' },
+          //     { shouldValidate: true }
+          //   )
+          // }
         >
           setValue
         </button>
