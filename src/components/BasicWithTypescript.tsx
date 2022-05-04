@@ -134,7 +134,7 @@ const BasicWithTypescript = () => {
   // <p>{firstName === 'bill1' ? 'This is a fake one' : 'wait'}</p>
 
   console.log('errors=', errors);
-  // console.log('isValid=', isValid);
+  console.log('isValid=', isValid);
   // NOTE: only worked when you have mode set to be 'onChange'. isDirty is more like the native form of isDirty state
   console.log('isDirty=', isDirty);
   // NOTE: dirtyFields is a bit different from isDirty. If you change a field, it will show in the dirtyFields object.
@@ -336,6 +336,7 @@ const BasicWithTypescript = () => {
         <input
           {...register('yourDetail.firstName', {
             required: 'This is required',
+            minLength: 6,
           })}
           id='Your Detail First Name'
         />
@@ -372,13 +373,18 @@ const BasicWithTypescript = () => {
         <button
           type='button'
           // onClick={() => setValue('yourDetail.firstName', 'annie')}
-          // ShouldDirty can be seen with isDirty, dirtyFields properties from formState. Component will re-render.
+          // NOTE: ShouldDirty can be seen with isDirty, dirtyFields properties from formState. Component will re-render.
           // onClick={() =>
           //   setValue('yourDetail.firstName', 'annie', { shouldDirty: true })
           // }
-          // ShouldDirty can be seen with touchFields properties from formState. Component will re-render.
+          // NOTE: ShouldDirty can be seen with touchFields properties from formState. Component will re-render.
+          // onClick={() =>
+          //   setValue('yourDetail.firstName', 'annie', { shouldTouch: true })
+          // }
+          // NOTE: shouldValidate can be seen with errors properties from formState. Component will re-render.
+          // If you want to check isValid as well make sure you change mode to be 'onChange'
           onClick={() =>
-            setValue('yourDetail.firstName', 'annie', { shouldTouch: true })
+            setValue('yourDetail.firstName', 'annie', { shouldValidate: true })
           }
         >
           setValue
