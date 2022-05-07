@@ -460,9 +460,17 @@ const BasicWithTypescript = () => {
           // onClick={() => trigger('yourDetail.firstName')}
           // NOTE: Trigger validation on multiple fields
           // onClick={() => trigger(['yourDetail.firstName', 'age', 'firstName'])}
+          // NOTE: print out put of the trigger.
+          // onClick={async () => {
+          //   const output = await trigger();
+          //   console.log('output=', output); // return false for failed validation and true for passing validation
+          // }}
+          // NOTE: Set the focus on the field IF it failed validation
           onClick={async () => {
-            const output = await trigger();
-            console.log('output=', output); // return false for failed validation and true for passing validation
+            const output = await trigger('yourDetail.firstName', {
+              shouldFocus: true,
+            });
+            console.log('output=', output);
           }}
         >
           trigger
