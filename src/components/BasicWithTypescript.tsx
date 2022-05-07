@@ -77,6 +77,7 @@ const BasicWithTypescript = () => {
       lastName3: 'bill',
       lastName5: 'bill',
     },
+    criteriaMode: 'all',
   });
 
   // When you use validate option, you can get the validate of the field straight away.
@@ -306,6 +307,8 @@ const BasicWithTypescript = () => {
         {errors.firstName && (
           <p className='error'>{errors.firstName.message}</p>
         )}
+        <p className='error'>{errors.firstName?.types?.test}</p>
+        <p className='error'>{errors.firstName?.types?.test1}</p>
 
         <label htmlFor='lastName'>Last Name:</label>
         {/*<input*/}
@@ -479,10 +482,19 @@ const BasicWithTypescript = () => {
         <button
           type='button'
           // NOTE: Set a custom error on a field
+          // onClick={() =>
+          //   setError('firstName', {
+          //     type: 'custom',
+          //     message: 'something is wrong',
+          //   })
+          // }
+          // NOTE: It's important to do criteriaMode: 'all', when you got multiple error messages
           onClick={() =>
             setError('firstName', {
-              type: 'custom',
-              message: 'something is wrong',
+              types: {
+                test: 'test is wrong',
+                test1: 'test1 is wrong',
+              },
             })
           }
         >
