@@ -489,14 +489,24 @@ const BasicWithTypescript = () => {
           //   })
           // }
           // NOTE: It's important to do criteriaMode: 'all', when you got multiple error messages
-          onClick={() =>
-            setError('firstName', {
-              types: {
-                test: 'test is wrong',
-                test1: 'test1 is wrong',
-              },
-            })
-          }
+          //       setError is only for showing on page. During submit, the validation rule follow the one in the input, which is { required: 'This is required' }
+          // onClick={() =>
+          //   setError('firstName', {
+          //     types: {
+          //       test: 'test is wrong',
+          //       test1: 'test1 is wrong',
+          //     },
+          //   })
+          // }
+          // NOTE: server side error. If you don't setError related to a field, it's an error related to the whole form.
+          //       And it will block the whole form from submission.
+          //       The follow failed to compile because customError is not in the FormValues list.
+          // onClick={() =>
+          //   setError('customError', {
+          //     type: 'server side',
+          //     message: 'server return false',
+          //   })
+          // }
         >
           setError
         </button>
