@@ -62,15 +62,16 @@ const BasicWithTypescript = () => {
     setValue,
     reset,
     getValues,
+    trigger,
   } = useForm<FormValues>({
     // mode: 'onChange', // isValid only worked if you have mode set to be 'onChange'
     // delayError: 500, // delay to show up the error msg
     defaultValues: {
       firstName: 'bill',
       lastName: 'luo',
-      age: 1,
+      // age: 1,
       yourDetail: {
-        firstName: 'annie1',
+        firstName: '',
       },
       lastName2: 'bill',
       lastName3: 'bill',
@@ -151,7 +152,7 @@ const BasicWithTypescript = () => {
   // console.log('isValid=', isValid);
   // NOTE: only worked when you have mode set to be 'onChange'. isDirty return true as long as your field value !== initial value
   //       isDirty is more like the native form of isDirty state
-  console.log('isDirty=', isDirty);
+  // console.log('isDirty=', isDirty);
   // NOTE: dirtyFields is a bit different from isDirty. If you change a field, it will show in the dirtyFields object.
   //       But if you change it back to the original value, it will be removed from the dirtyFields object.
   // console.log('dirtyFields=', dirtyFields);
@@ -449,6 +450,18 @@ const BasicWithTypescript = () => {
           onClick={() => reset({ ...getValues, lastName: 'huang' })}
         >
           reset
+        </button>
+
+        <button
+          type='button'
+          // NOTE: Trigger validation on All fields
+          // onClick={() => trigger()}
+          // NOTE: Trigger validation on 1 field
+          // onClick={() => trigger('yourDetail.firstName')}
+          // NOTE: Trigger validation on multiple fields
+          onClick={() => trigger(['yourDetail.firstName', 'age', 'firstName'])}
+        >
+          trigger
         </button>
 
         <input type='submit' />
