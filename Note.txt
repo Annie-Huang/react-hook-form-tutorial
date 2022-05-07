@@ -30,6 +30,7 @@ React Hook Form - useForm: setValue     (https://www.youtube.com/watch?v=qpv51sC
 React Hook Form - useForm: reset        (https://www.youtube.com/watch?v=qmCLBjyPwVk&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=8)
 React Hook Form - useForm: trigger      (https://www.youtube.com/watch?v=-bcyJCDjksE&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=9)
 React Hook Form - useForm: setError     (https://www.youtube.com/watch?v=raMqvE0YyIY&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=10)
+React Hook Form - useForm: resetField   (https://www.youtube.com/watch?v=IdLFcNaEFEo&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=12)
 
 ######################################################################################################################################################################
 

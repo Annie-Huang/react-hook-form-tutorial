@@ -63,8 +63,9 @@ const BasicWithTypescript = () => {
     reset,
     getValues,
     trigger,
+    resetField,
   } = useForm<FormValues>({
-    // mode: 'onChange', // isValid only worked if you have mode set to be 'onChange'
+    mode: 'onChange', // isValid only worked if you have mode set to be 'onChange'
     // delayError: 500, // delay to show up the error msg
     defaultValues: {
       firstName: 'bill',
@@ -150,7 +151,7 @@ const BasicWithTypescript = () => {
   // <p>{firstName === 'bill1' ? 'This is a fake one' : 'wait'}</p>
 
   console.log('errors=', errors);
-  // console.log('isValid=', isValid);
+  console.log('isValid=', isValid);
   // NOTE: only worked when you have mode set to be 'onChange'. isDirty return true as long as your field value !== initial value
   //       isDirty is more like the native form of isDirty state
   // console.log('isDirty=', isDirty);
@@ -521,6 +522,16 @@ const BasicWithTypescript = () => {
           }
         >
           setError
+        </button>
+
+        <button
+          type='button'
+          // NOTE: Reset the field to original value
+          // onClick={() => resetField('firstName')}
+          // NOTE: Reset the field + keep the error
+          onClick={() => resetField('firstName', { keepError: true })}
+        >
+          reset field
         </button>
 
         <input type='submit' />
