@@ -507,6 +507,18 @@ const BasicWithTypescript = () => {
           //     message: 'server return false',
           //   })
           // }
+          // NOTE: Set focus to the field after setError. This has to related to a input field defined in the FormValues.
+          //       Again this will NOT block the whole form from submission.
+          onClick={() =>
+            setError(
+              'firstName',
+              {
+                type: 'server side',
+                message: 'server return false',
+              },
+              { shouldFocus: true }
+            )
+          }
         >
           setError
         </button>
