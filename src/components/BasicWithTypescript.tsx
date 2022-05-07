@@ -151,13 +151,13 @@ const BasicWithTypescript = () => {
   // <p>{firstName === 'bill1' ? 'This is a fake one' : 'wait'}</p>
 
   console.log('errors=', errors);
-  console.log('isValid=', isValid);
-  // NOTE: only worked when you have mode set to be 'onChange'. isDirty return true as long as your field value !== initial value
-  //       isDirty is more like the native form of isDirty state
-  // console.log('isDirty=', isDirty);
+  // console.log('isValid=', isValid);
+  // NOTE: only worked when you have mode set to be 'onChange' and have a initial default value.
+  //       isDirty return true as long as your field value !== initial valu. isDirty is more like the native form of isDirty state
+  console.log('isDirty=', isDirty);
   // NOTE: dirtyFields is a bit different from isDirty. If you change a field, it will show in the dirtyFields object.
   //       But if you change it back to the original value, it will be removed from the dirtyFields object.
-  // console.log('dirtyFields=', dirtyFields);
+  console.log('dirtyFields=', dirtyFields);
   // NOTE: touchedFields will be added if you touched the field, even if you didn't make a change, like the native touch for <input>
   // console.log('touchedFields=', touchedFields);
   // NOTE: isSubmitted only log if the the submit button be clicked. Doesn't matter whether we call handleSubmit or not. Remember we will not call handleSubmit unless it pass validation?
@@ -528,8 +528,10 @@ const BasicWithTypescript = () => {
           type='button'
           // NOTE: Reset the field to original value
           // onClick={() => resetField('firstName')}
-          // NOTE: Reset the field + keep the error
-          onClick={() => resetField('firstName', { keepError: true })}
+          // NOTE: Reset the field + keep the error, But I cannot see the use case for this one.
+          // onClick={() => resetField('firstName', { keepError: true })}
+          // NOTE: Reset the field + keep the isDirty|dirtyFields current value (can be true or value for current isDirty value).
+          onClick={() => resetField('firstName', { keepDirty: true })}
         >
           reset field
         </button>
