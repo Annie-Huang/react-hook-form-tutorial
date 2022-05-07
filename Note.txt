@@ -29,6 +29,7 @@ react hook form - useForm: handleSubmit (https://www.youtube.com/watch?v=KzcPKB9
 React Hook Form - useForm: setValue     (https://www.youtube.com/watch?v=qpv51sCH3fI&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=7)
 React Hook Form - useForm: reset        (https://www.youtube.com/watch?v=qmCLBjyPwVk&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=8)
 React Hook Form - useForm: trigger      (https://www.youtube.com/watch?v=-bcyJCDjksE&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=9)
+React Hook Form - useForm: setError     (https://www.youtube.com/watch?v=raMqvE0YyIY&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=10)
 
 ######################################################################################################################################################################
 

@@ -476,6 +476,19 @@ const BasicWithTypescript = () => {
           trigger
         </button>
 
+        <button
+          type='button'
+          // NOTE: Set a custom error on a field
+          onClick={() =>
+            setError('firstName', {
+              type: 'custom',
+              message: 'something is wrong',
+            })
+          }
+        >
+          setError
+        </button>
+
         <input type='submit' />
         {/*<input type='submit' disabled={!isValid} />*/}
 
