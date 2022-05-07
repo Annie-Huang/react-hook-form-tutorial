@@ -154,12 +154,16 @@ const BasicWithTypescript = () => {
   // console.log('isValid=', isValid);
   // NOTE: only worked when you have mode set to be 'onChange' and have a initial default value.
   //       isDirty return true as long as your field value !== initial valu. isDirty is more like the native form of isDirty state
-  console.log('isDirty=', isDirty);
+  // console.log('isDirty=', isDirty);
   // NOTE: dirtyFields is a bit different from isDirty. If you change a field, it will show in the dirtyFields object.
   //       But if you change it back to the original value, it will be removed from the dirtyFields object.
-  console.log('dirtyFields=', dirtyFields);
-  // NOTE: touchedFields will be added if you touched the field, even if you didn't make a change, like the native touch for <input>
-  // console.log('touchedFields=', touchedFields);
+  // console.log('dirtyFields=', dirtyFields);
+  // NOTE: touchedFields will be added if you touched the field and exist, even if you didn't make a change, like the native touch for <input>
+  //       touchedFields will only log when you exist. So
+  //       1. touched and exist                     >>> log it.
+  //       2. touched and type something and exist  >>> log it
+  //       3. touched and type something            >>> NO logging yet.
+  console.log('touchedFields=', touchedFields);
   // NOTE: isSubmitted only log if the the submit button be clicked. Doesn't matter whether we call handleSubmit or not. Remember we will not call handleSubmit unless it pass validation?
   // console.log('isSubmitted=', isSubmitted);
   // NOTE: isSubmitted only log if handleSubmit is call, meaning it passes all validation when the submit button is clicked.
@@ -530,8 +534,10 @@ const BasicWithTypescript = () => {
           // onClick={() => resetField('firstName')}
           // NOTE: Reset the field + keep the error, But I cannot see the use case for this one.
           // onClick={() => resetField('firstName', { keepError: true })}
-          // NOTE: Reset the field + keep the isDirty|dirtyFields current value (can be true or value for current isDirty value).
-          onClick={() => resetField('firstName', { keepDirty: true })}
+          // NOTE: Reset the field + keep the current isDirty|dirtyFields value (can be true or value for current isDirty value).
+          // onClick={() => resetField('firstName', { keepDirty: true })}
+          // NOTE: Reset the field + keep the current touchedFields value (can be empty object or not empty object for current touchedFields value).
+          onClick={() => resetField('firstName', { keepTouched: true })}
         >
           reset field
         </button>
