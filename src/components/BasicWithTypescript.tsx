@@ -499,8 +499,8 @@ const BasicWithTypescript = () => {
           //   })
           // }
           // NOTE: server side error. If you don't setError related to a field, it's an error related to the whole form.
-          //       And it will block the whole form from submission.
-          //       The follow failed to compile because customError is not in the FormValues list.
+          //       And it will block the whole form from submission. I cannot test this because
+          //       the follow failed to compile because customError is not in the FormValues list.
           // onClick={() =>
           //   setError('customError', {
           //     type: 'server side',
