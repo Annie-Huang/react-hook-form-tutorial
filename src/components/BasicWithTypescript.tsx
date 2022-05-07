@@ -45,6 +45,7 @@ const BasicWithTypescript = () => {
     register,
     watch,
     handleSubmit,
+    formState,
     formState: {
       errors,
       isValid,
@@ -106,6 +107,16 @@ const BasicWithTypescript = () => {
       },
     })
   );
+
+  // Submit with reset. Then you need to watch formState
+  useEffect(() => {
+    if (formState.isSubmitSuccessful) {
+      reset({
+        firstName: 'bill1',
+        lastName: 'luo1',
+      });
+    }
+  }, [formState, reset]);
 
   // watch is for 1. conditionally render stuff, 2. show something in the view.
   // console.log('watch=', watch());
@@ -195,6 +206,7 @@ const BasicWithTypescript = () => {
     throw new Error('test');
   };
   */
+  // Everytime you clicks submit, all the form state will get flush away.
   const onSubmit = (data: FormValues, event: any) => {
     console.log('data=', data);
     console.log('event=', event); // the form is in event.target
