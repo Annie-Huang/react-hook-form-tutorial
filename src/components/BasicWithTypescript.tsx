@@ -61,6 +61,7 @@ const BasicWithTypescript = () => {
     setError,
     setValue,
     reset,
+    getValues,
   } = useForm<FormValues>({
     // mode: 'onChange', // isValid only worked if you have mode set to be 'onChange'
     // delayError: 500, // delay to show up the error msg
@@ -436,12 +437,16 @@ const BasicWithTypescript = () => {
           // }
           // NOTE: If you put on watch(), you can see the field has change but it doesn't change on the page, what is the use of this function??
           //       Also tested without watch(), press reset and then click submit, it will still submit the page value rather than the reset value.
-          onClick={() =>
-            reset(
-              { firstName: 'annie', lastName: 'huang' },
-              { keepValues: true }
-            )
-          }
+          // onClick={() =>
+          //   reset(
+          //     { firstName: 'annie', lastName: 'huang' },
+          //     { keepValues: true }
+          //   )
+          // }
+          // NOTE: Partial reset. Just reset one and keep the rest of the value.
+          //       setValue is usually use for setting single value where as reset is use for setting bulk values in different form fields
+          //       Also unlike setValue, reset will wipe out your form state when you involve it,
+          onClick={() => reset({ ...getValues, lastName: 'huang' })}
         >
           reset
         </button>
