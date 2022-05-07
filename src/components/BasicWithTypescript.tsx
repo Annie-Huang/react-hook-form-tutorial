@@ -66,8 +66,9 @@ const BasicWithTypescript = () => {
     defaultValues: {
       firstName: 'bill',
       lastName: 'luo',
+      age: 1,
       yourDetail: {
-        firstName: '',
+        firstName: 'annie1',
       },
       lastName2: 'bill',
       lastName3: 'bill',
@@ -412,13 +413,21 @@ const BasicWithTypescript = () => {
           // NOTE: Reset the form to new values + change the original default values to the new values as well
           // onClick={() => reset({ firstName: 'annie', lastName: 'huang' })}
           // NOTE: Reset the form to new values + NOT change the original default values
-          // You do this when you have initial value as empty and reset will fill the form with new value, isDirty is true.
-          // But because original value didn't change, when you delete the value in the form, isDirty will change back to false.
-          // You cannot see it in here for some reason, run the <TestReset> component to see.
+          //       You do this when you have initial value as empty and reset will fill the form with new value, isDirty is true.
+          //       But because original value didn't change, when you delete the value in the form, isDirty will change back to false.
+          //       You cannot see it in here for some reason, run the <TestReset> component to see.
+          // onClick={() =>
+          //   reset(
+          //     { firstName: 'annie', lastName: 'huang' },
+          //     { keepDefaultValues: true }
+          //   )
+          // }
+          // NOTE: If you put on watch(), you can see the field has change but it doesn't change on the page, what is the use of this function??
+          //       Also tested without watch(), press reset and then click submit, it will still submit the page value rather than the reset value.
           onClick={() =>
             reset(
               { firstName: 'annie', lastName: 'huang' },
-              { keepDefaultValues: true }
+              { keepValues: true }
             )
           }
         >
