@@ -33,6 +33,7 @@ React Hook Form - useForm: resetField   (https://www.youtube.com/watch?v=IdLFcNa
 React Hook Form - useForm: unregister   (https://www.youtube.com/watch?v=TM99g_NW5Gk&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=13)
 React Europe conference 2021: Enhances forms with developer experience and user experience
                                         (https://www.youtube.com/watch?v=ZFxHdpzaEmM&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=15)
+React Hook Form V7 (Preview)            (https://www.youtube.com/watch?v=ZBfBiwyR2HY&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=16)
 
 ######################################################################################################################################################################
 
