@@ -19,8 +19,7 @@ https://codesandbox.io/s/react-hook-form-v7-controller-5h1q5    << control code 
 
 React Hook Form - Get Started           (https://www.youtube.com/watch?v=RkXv4AXXC_4)
 React Hook Form V7 - Get Started        (https://www.youtube.com/watch?v=DN8v7_RbVlc&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=1)
-Progressively improve form              (https://www.youtube.com/watch?v=PGqbe3TDlrE&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=2)
-    - This one got useFieldArray info
+Progressively improve form              (https://www.youtube.com/watch?v=PGqbe3TDlrE&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=2)   << This one got useFieldArray info
 React Hook Form - Controller            (https://www.youtube.com/watch?v=N2UNk_UCVyA&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=14)
 React Hook Form - useForm: register     (https://www.youtube.com/watch?v=JFIpCoajYkA&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=4)
 React Hook Form - useForm: watch        (https://www.youtube.com/watch?v=3qLd69WMqKk&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=5)
@@ -31,6 +30,7 @@ React Hook Form - useForm: reset        (https://www.youtube.com/watch?v=qmCLBjy
 React Hook Form - useForm: trigger      (https://www.youtube.com/watch?v=-bcyJCDjksE&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=9)
 React Hook Form - useForm: setError     (https://www.youtube.com/watch?v=raMqvE0YyIY&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=10)
 React Hook Form - useForm: resetField   (https://www.youtube.com/watch?v=IdLFcNaEFEo&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=12)
+React Hook Form - useForm: unregister   (https://www.youtube.com/watch?v=TM99g_NW5Gk&list=PL03g4H_exuTppOgtY-45oWvN79rvJIKzf&index=13)
 
 ######################################################################################################################################################################
 

@@ -17,6 +17,7 @@ type FormValues = {
   lastName3: string;
   lastName4: string;
   lastName5: string;
+  checkbox: boolean;
 };
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -77,8 +78,10 @@ const BasicWithTypescript = () => {
       lastName2: 'bill',
       lastName3: 'bill',
       lastName5: 'bill',
+      checkbox: true,
     },
     criteriaMode: 'all',
+    shouldUnregister: true,
   });
 
   // When you use validate option, you can get the validate of the field straight away.
@@ -149,6 +152,9 @@ const BasicWithTypescript = () => {
   // useEffect(() => {...}, [firstName])
   // Correct approach:
   // <p>{firstName === 'bill1' ? 'This is a fake one' : 'wait'}</p>
+  // --------------------------------------------
+  const checkbox = watch('checkbox');
+  console.log('checkbox=', checkbox);
 
   console.log('errors=', errors);
   // console.log('isValid=', isValid);
@@ -304,11 +310,20 @@ const BasicWithTypescript = () => {
         {/*  })}*/}
         {/*  id='First Name'*/}
         {/*/>*/}
+        {/*========================================================================*/}
         {/* NOTE: You would have the shortcut for required like below....*/}
-        <input
-          {...register('firstName', { required: 'This is required' })}
-          id='First Name'
-        />
+        {/*<input*/}
+        {/*  {...register('firstName', { required: 'This is required' })}*/}
+        {/*  id='First Name'*/}
+        {/*/>*/}
+        {/*========================================================================*/}
+        {/* NOTE: this need to work with "shouldUnregister: true," */}
+        {checkbox && (
+          <input
+            {...register('firstName', { required: 'This is required' })}
+            id='First Name'
+          />
+        )}
         {errors.firstName && (
           <p className='error'>{errors.firstName.message}</p>
         )}
@@ -541,6 +556,8 @@ const BasicWithTypescript = () => {
         >
           reset field
         </button>
+
+        <input type='checkbox' {...register('checkbox')} />
 
         <input type='submit' />
         {/*<input type='submit' disabled={!isValid} />*/}
