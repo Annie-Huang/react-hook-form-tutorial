@@ -65,15 +65,16 @@ const BasicWithTypescript = () => {
     getValues,
     trigger,
     resetField,
+    unregister,
   } = useForm<FormValues>({
     mode: 'onChange', // isValid only worked if you have mode set to be 'onChange'
     // delayError: 500, // delay to show up the error msg
     defaultValues: {
       firstName: 'bill',
       lastName: 'luo',
-      // age: 1,
+      age: 1,
       yourDetail: {
-        firstName: '',
+        firstName: 'annie1',
       },
       lastName2: 'bill',
       lastName3: 'bill',
@@ -81,7 +82,7 @@ const BasicWithTypescript = () => {
       checkbox: true,
     },
     criteriaMode: 'all',
-    shouldUnregister: true,
+    // shouldUnregister: true,
   });
 
   // When you use validate option, you can get the validate of the field straight away.
@@ -100,20 +101,20 @@ const BasicWithTypescript = () => {
 
   // You can see what's inside a register is just a wrapper with name, onBlur, onChange, ref property
   // Change the default value to 'Huang3' and you can see the this field in errors when submit
-  console.log(
-    'What is inside a Register ==>',
-    register('lastName3', {
-      maxLength: {
-        value: 5,
-        message: 'Max length is 5',
-      },
-      validate: async (value) => {
-        // console.log('lastName3 value=', value);
-        // return value === 'bill';
-        return value === 'bill' || 'The lastName3 has to be bill';
-      },
-    })
-  );
+  // console.log(
+  //   'What is inside a Register ==>',
+  register('lastName3', {
+    maxLength: {
+      value: 5,
+      message: 'Max length is 5',
+    },
+    validate: async (value) => {
+      // console.log('lastName3 value=', value);
+      // return value === 'bill';
+      return value === 'bill' || 'The lastName3 has to be bill';
+    },
+  });
+  // );
 
   // Submit with reset. Then you need to watch formState
   useEffect(() => {
@@ -155,6 +156,11 @@ const BasicWithTypescript = () => {
   // --------------------------------------------
   const checkbox = watch('checkbox');
   console.log('checkbox=', checkbox);
+  useEffect(() => {
+    if (!checkbox) {
+      unregister('firstName');
+    }
+  }, [unregister, checkbox]);
 
   console.log('errors=', errors);
   // console.log('isValid=', isValid);
@@ -169,7 +175,7 @@ const BasicWithTypescript = () => {
   //       1. touched and exist                     >>> log it.
   //       2. touched and type something and exist  >>> log it
   //       3. touched and type something            >>> NO logging yet.
-  console.log('touchedFields=', touchedFields);
+  // console.log('touchedFields=', touchedFields);
   // NOTE: isSubmitted only log if the the submit button be clicked. Doesn't matter whether we call handleSubmit or not. Remember we will not call handleSubmit unless it pass validation?
   // console.log('isSubmitted=', isSubmitted);
   // NOTE: isSubmitted only log if handleSubmit is call, meaning it passes all validation when the submit button is clicked.
@@ -317,7 +323,7 @@ const BasicWithTypescript = () => {
         {/*  id='First Name'*/}
         {/*/>*/}
         {/*========================================================================*/}
-        {/* NOTE: this need to work with "shouldUnregister: true," */}
+        {/* NOTE: this need to work with "shouldUnregister: true," Or you manually called unregister */}
         {checkbox && (
           <input
             {...register('firstName', { required: 'This is required' })}
