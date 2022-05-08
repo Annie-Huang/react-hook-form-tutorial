@@ -154,11 +154,16 @@ const BasicWithTypescript = () => {
   // Correct approach:
   // <p>{firstName === 'bill1' ? 'This is a fake one' : 'wait'}</p>
   // --------------------------------------------
+
   const checkbox = watch('checkbox');
   console.log('checkbox=', checkbox);
   useEffect(() => {
     if (!checkbox) {
-      unregister('firstName');
+      // NOTE: Will wipe out all the associated form state when you register without any option
+      // unregister('firstName');
+      // NOTE: Keep the error state
+      unregister('firstName', { keepError: true });
+      // NOTE: Other options includes keepTouched, keepValid， keepValue, keepDefaultValue
     }
   }, [unregister, checkbox]);
 
