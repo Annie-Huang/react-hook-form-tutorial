@@ -412,9 +412,13 @@ const BasicWithTypescript = () => {
           <option value='male'>male</option>
           <option value='female'>female</option>
         </select>
-
-        <label htmlFor='developer'>Are you a developer?</label>
-        <input {...register('developer')} type='checkbox' value='yes' />
+        <div>
+          <label htmlFor='developer' style={{ display: 'inline' }}>
+            Are you a developer?
+          </label>
+          <input {...register('developer')} type='checkbox' value='yes' />
+        </div>
+        <br />
 
         <button
           type='button'
@@ -562,8 +566,13 @@ const BasicWithTypescript = () => {
         >
           reset field
         </button>
-
-        <input type='checkbox' {...register('checkbox')} />
+        <br />
+        <div>
+          <label htmlFor='checkbox' style={{ display: 'inline' }}>
+            Unregister FirstName:
+          </label>
+          <input type='checkbox' {...register('checkbox')} />
+        </div>
 
         <input type='submit' />
         {/*<input type='submit' disabled={!isValid} />*/}
