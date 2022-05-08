@@ -67,6 +67,12 @@ const BasicWithTypescript = () => {
     resetField,
     unregister,
   } = useForm<FormValues>({
+    /*
+    NOTE: generally you will not defined mode, which takes default of onSubmit, it means
+          before the first submit, don't trigger validation.
+          after the first submit, trigger validationon invalid inputs on onChange event
+          This is more align to the native form behavior. Or you can define your mode + reValidationMode here.
+    */
     mode: 'onChange', // isValid only worked if you have mode set to be 'onChange'
     // delayError: 500, // delay to show up the error msg
     defaultValues: {
@@ -101,20 +107,20 @@ const BasicWithTypescript = () => {
 
   // You can see what's inside a register is just a wrapper with name, onBlur, onChange, ref property
   // Change the default value to 'Huang3' and you can see the this field in errors when submit
-  // console.log(
-  //   'What is inside a Register ==>',
-  register('lastName3', {
-    maxLength: {
-      value: 5,
-      message: 'Max length is 5',
-    },
-    validate: async (value) => {
-      // console.log('lastName3 value=', value);
-      // return value === 'bill';
-      return value === 'bill' || 'The lastName3 has to be bill';
-    },
-  });
-  // );
+  console.log(
+    'What is inside a Register ==>',
+    register('lastName3', {
+      maxLength: {
+        value: 5,
+        message: 'Max length is 5',
+      },
+      validate: async (value) => {
+        // console.log('lastName3 value=', value);
+        // return value === 'bill';
+        return value === 'bill' || 'The lastName3 has to be bill';
+      },
+    })
+  );
 
   // Submit with reset. Then you need to watch formState
   useEffect(() => {
