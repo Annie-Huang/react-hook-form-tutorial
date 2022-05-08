@@ -161,9 +161,10 @@ const BasicWithTypescript = () => {
     if (!checkbox) {
       // NOTE: Will wipe out all the associated form state when you register without any option
       // unregister('firstName');
-      // NOTE: Keep the error state
-      unregister('firstName', { keepError: true });
-      // NOTE: Other options includes keepTouched, keepValid， keepValue, keepDefaultValue
+      // NOTE: Keep the error state. Other options includes keepTouched, keepValid， keepValue, keepDefaultValue
+      // unregister('firstName', { keepError: true });
+      // NOTE: unregister multiple fields
+      unregister(['firstName', 'lastName'], { keepError: true });
     }
   }, [unregister, checkbox]);
 
@@ -574,7 +575,7 @@ const BasicWithTypescript = () => {
         <br />
         <div>
           <label htmlFor='checkbox' style={{ display: 'inline' }}>
-            Unregister FirstName:
+            Unregister FirstName and LastName:
           </label>
           <input type='checkbox' {...register('checkbox')} />
         </div>
